@@ -3,7 +3,7 @@
 // azizwrites.xyz
 
 import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.Set;
 
 class Utils {
     // parses a line in a CSV file and returns an array of its columns
@@ -50,7 +50,7 @@ class Utils {
         return movie.compareTo(start) >= 0 && movie.compareTo(end) <= 0;
     }
 
-    public static void printMovieSet(TreeSet<Movie> set) {
+    public static void printMovieSet(Set<Movie> set) {
         for (Movie movie : set) {
             System.out.printf("\"%s\" released in %s \n", movie.title, movie.releaseYear);
         }

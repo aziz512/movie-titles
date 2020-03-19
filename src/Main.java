@@ -4,7 +4,7 @@
 
 import java.io.File;
 import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -16,9 +16,9 @@ public class Main {
             Movie movie = Movie.parseMovieLine(currentLine);
             moviesTree.insert(movie);
         }
-        TreeSet<Movie> sample1 = moviesTree.subSet("Bug's Life", "Wagon");
-        TreeSet<Movie> sample2 = moviesTree.subSet("Back to the Future", "Hulk");
-        TreeSet<Movie> sample3 = moviesTree.subSet("Toy Story", "WALL-E");
+        Set<Movie> sample1 = moviesTree.subSet("Bug's Life", "Wagon");
+        Set<Movie> sample2 = moviesTree.subSet("Back to the Future", "Hulk");
+        Set<Movie> sample3 = moviesTree.subSet("Toy Story", "WALL-E");
         // uncomment for some huge outputs, especially sample 1
         // Utils.printMovieSet(sample1);
         // Utils.printMovieSet(sample2);

@@ -1,4 +1,5 @@
-import java.util.TreeSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 // Aziz Yokubjonov - aziz.yokubjonov@gmail.com
 // GitHub: @aziz512
@@ -7,21 +8,22 @@ import java.util.TreeSet;
 public class MovieBST {
     private MovieNode first;
 
-    public TreeSet<Movie> subSet(String start, String end) {
-        TreeSet<Movie> subset = new TreeSet<Movie>();
+    public Set<Movie> subSet(String start, String end) {
+        // use LinkedHashSet because it maintains insertion order
+        LinkedHashSet<Movie> subset = new LinkedHashSet<Movie>();
         collectMoviesBetween(start, end, this.first, subset);
         return subset;
     }
 
-    private void collectMoviesBetween(String start, String end, MovieNode currentNode, TreeSet<Movie> collector) {
+    private void collectMoviesBetween(String start, String end, MovieNode currentNode, Set<Movie> collector) {
         if (currentNode == null) {
             return;
         }
 
+        collectMoviesBetween(start, end, currentNode.left, collector);
         if (Utils.isMovieInRange(currentNode, start, end)) {
             collector.add(new Movie(currentNode));
         }
-        collectMoviesBetween(start, end, currentNode.left, collector);
         collectMoviesBetween(start, end, currentNode.right, collector);
     }
 
